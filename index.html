@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Automation</title>
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <!-- Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCB5A5DndjkHWIFcBn7gACwYVgkmvMbFB4",
+      authDomain: "bmc-opretion.firebaseapp.com",
+      databaseURL: "https://bmc-opretion-default-rtdb.firebaseio.com",
+      projectId: "bmc-opretion",
+      storageBucket: "bmc-opretion.appspot.com",
+      messagingSenderId: "157700750998",
+      appId: "1:157700750998:web:f738cf2a83314cbf728cb7"
+ 
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    function toggleLED(led, state) {
+      const path = "/home/led" + led;
+      database.ref(path).set(state);
+    }
+  </script>
+</head>
+<body>
+  <h1>Home Automation</h1>
+  <div>
+    <h2>Control LED 1</h2>
+    <button onclick="toggleLED(0, 1)">Turn ON LED 1</button>
+    <button onclick="toggleLED(0, 0)">Turn OFF LED 1</button>
+  </div>
+  <div>
+    <h2>Control LED 2</h2>
+    <button onclick="toggleLED(1, 1)">Turn ON LED 2</button>
+    <button onclick="toggleLED(1, 0)">Turn OFF LED 2</button>
+  </div>
+  <div>
+    <h2>Control LED 3</h2>
+    <button onclick="toggleLED(2, 1)">Turn ON LED 3</button>
+    <button onclick="toggleLED(2, 0)">Turn OFF LED 3</button>
+  </div>
+  <div>
+    <h2>Control LED 4</h2>
+    <button onclick="toggleLED(3, 1)">Turn ON LED 4</button>
+    <button onclick="toggleLED(3, 0)">Turn OFF LED 4</button>
+  </div>
+</body>
+</html>
